@@ -3,6 +3,7 @@ import { TodoSearch } from './TodoSearch';
 import { TodoList } from './TodoList';
 import { TodoItem } from './TodoItem';
 import { CreateTodoButton } from './CreateTodoButton';
+import { TodoInput } from './TodoInput';
 import React from 'react';
 
 const defaultTodos = [
@@ -14,10 +15,17 @@ const defaultTodos = [
 
 function App() {
   return (
-    <>
-      <TodoCounter completed={3} total={5} />
+    <main className='grid grid-cols-2 gap-8 max-w-screen-lg mx-auto mt-12'>
+      <div  className='bg-white p-6 rounded-lg'>
+      <h2 className='text-center text-lg mb-6 text-indigo-500 font-medium'>
+        Crear una nueva tarea
+      </h2>
+      <TodoInput />
+      <CreateTodoButton />
+      </div>
+    <div className='p-6'>
+      <TodoCounter completed={3} total={defaultTodos.length} />
       <TodoSearch />
-
       <TodoList>
         {defaultTodos.map(todo => (
           <TodoItem 
@@ -27,9 +35,9 @@ function App() {
           />
         ))}
       </TodoList>
+    </div>
       
-    <CreateTodoButton />
-    </>
+    </main>
   );
 }
 

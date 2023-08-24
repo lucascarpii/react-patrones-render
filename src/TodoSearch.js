@@ -1,6 +1,6 @@
 function TodoSearch(){
   return(
-    <input placeholder="Cortar cebolla"  />
+    <input className=" bg-white py-2 px-4 w-full border rounded mb-4" placeholder="Cortar cebolla"  />
   )
 }
 

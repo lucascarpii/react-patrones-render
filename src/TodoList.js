@@ -1,6 +1,6 @@
 function TodoList({children}){
   return(
-    <ul>
+    <ul className="grid gap-2">
       {children}
     </ul>
   )

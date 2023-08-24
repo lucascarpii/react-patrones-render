@@ -1,7 +1,7 @@
 function CreateTodoButton(){
   return(
-  <button>
-    Agregar
+  <button className="bg-indigo-500 p-2 w-full rounded text-white font-medium">
+    Agregar tarea
   </button>
   )
 }
