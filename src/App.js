@@ -14,6 +14,13 @@ const defaultTodos = [
 ]
 
 function App() {
+  const [todos, setTodos] = React.useState(defaultTodos);
+  const [searchValue, setSearchValue] = React.useState('');
+
+  const completedTodos = todos.filter((todo) => !!todo.completed).length;
+  const totalTodos = todos.length
+  console.log('Los usuarios buscan todos de ' + searchValue);
+
   return (
     <main className='grid grid-cols-2 gap-8 max-w-screen-lg mx-auto mt-12'>
       <div  className='bg-white p-6 rounded-lg'>
@@ -24,8 +31,8 @@ function App() {
       <CreateTodoButton />
       </div>
     <div className='p-6'>
-      <TodoCounter completed={3} total={defaultTodos.length} />
-      <TodoSearch />
+      <TodoCounter completed={completedTodos} total={totalTodos} />
+      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
       <TodoList>
         {defaultTodos.map(todo => (
           <TodoItem 
