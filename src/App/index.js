@@ -1,43 +1,11 @@
-import { TodoCounter } from './components/TodoCounter';
-import { TodoSearch } from './components/TodoSearch';
-import { TodoList } from './components/TodoList';
-import { TodoItem } from './components/TodoItem';
-import { CreateTodoButton } from './components/CreateTodoButton';
-import { TodoInput } from './components/TodoInput';
 import React from 'react';
-
-// const defaultTodos = [
-//   {text: 'Primer tarea', completed: true},
-//   {text: 'Segunda tarea', completed: false},
-//   {text: 'Tercera tarea', completed: false},
-//   {text: 'Cuarta tarea', completed: false},
-// ]
-// let stringifiedTodos = JSON.stringify(defaultTodos)
-// localStorage.setItem('TODOS_V1', stringifiedTodos);
-
-// localStorage.removeItem('TODOS_V1');
-
-function useLocalStorage(itemName, initialValue) {
-  const localStorageItem = localStorage.getItem(itemName);
-
-  let parsedItem;
-  
-  if (!localStorageItem) {
-    localStorage.setItem(itemName, JSON.stringify(initialValue));
-    parsedItem = initialValue;
-  } else {
-    parsedItem = JSON.parse(localStorageItem);
-  }
-
-  const [item, setItem] = React.useState(parsedItem);
-
-  const saveItem = (newItem) => {
-    localStorage.setItem(itemName, JSON.stringify(newItem));
-    setItem(newItem);
-  };
-
-  return [item, saveItem];
-}
+import { TodoCounter } from '../components/TodoCounter';
+import { TodoSearch } from '../components/TodoSearch';
+import { TodoList } from '../components/TodoList';
+import { TodoItem } from '../components/TodoItem';
+import { CreateTodoButton } from '../components/CreateTodoButton';
+import { TodoInput } from '../components/TodoInput';
+import { useLocalStorage } from './useLocalStorage';
 
 function App() {
   const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
