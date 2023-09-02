@@ -29,8 +29,9 @@ function AppUI ({
     <CreateTodoButton />
     </div>
     <div className='p-6'>
-      <TodoCounter completed={completedTodos} total={totalTodos} />
-      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+      <TodoCounter completed={completedTodos} total={totalTodos} loading={loading} />
+      
+      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} loading={loading} />
       <TodoList>
         {loading && (
           <>
