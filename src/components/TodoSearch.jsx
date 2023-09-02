@@ -1,5 +1,7 @@
 import React from "react"
-function TodoSearch({searchValue, setSearchValue, loading}){
+import { TodoContext } from "../TodoContext"
+function TodoSearch(){
+  const {searchValue, setSearchValue, loading} = React.useContext(TodoContext)
   if(loading){
     return (
       <div className="animate-pulse bg-white py-2 px-4 w-full rounded mb-4 h-[42px] flex items-center" >
