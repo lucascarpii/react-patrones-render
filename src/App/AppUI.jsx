@@ -8,8 +8,17 @@ import { TodosLoading } from '../components/TodosLoading';
 import { TodosError } from '../components/TodosError';
 import { EmptyTodos } from '../components/EmptyTodos';
 import { TodoContext } from '../TodoContext';
+import React from 'react';
 
 function AppUI (){
+const {
+  loading,
+  error,
+  searchedTodos,
+  completeTodo,
+  deleteTodo,
+} = React.useContext(TodoContext)
+
   return(
   <main className='grid grid-cols-2 gap-8 max-w-screen-lg mx-auto mt-12 '>
     <div  className='bg-white p-6 rounded-lg h-fit'>
@@ -23,40 +32,29 @@ function AppUI (){
     <div className='p-6'>
       <TodoCounter />
       <TodoSearch />
-      
-      <TodoContext.Consumer>
-        {({
-          loading,
-          error,
-          searchedTodos,
-          completeTodo,
-          deleteTodo,
-        }) => (
-          <TodoList>
-            {loading && (
-              <>
-                <TodosLoading />
-                <TodosLoading />
-                <TodosLoading />
-                <TodosLoading />
-              </>
-            )}
-            {error && <TodosError/>}
-            {(!loading && searchedTodos.length === 0) && <EmptyTodos />}
 
-            {searchedTodos.map(todo => (
-              <TodoItem
-                key={todo.text}
-                text={todo.text}
-                completed={todo.completed}
-                onComplete={() => completeTodo(todo.text)}
-                onDelete={() => deleteTodo(todo.text)}
-              />
-            ))}
-          </TodoList>
+      <TodoList>
+        {loading && (
+          <>
+            <TodosLoading />
+            <TodosLoading />
+            <TodosLoading />
+            <TodosLoading />
+          </>
         )}
-      </TodoContext.Consumer>
+        {error && <TodosError/>}
+        {(!loading && searchedTodos.length === 0) && <EmptyTodos />}
 
+        {searchedTodos.map(todo => (
+          <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+            onComplete={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
+          />
+        ))}
+      </TodoList>
     </div>
   </main>
   )
