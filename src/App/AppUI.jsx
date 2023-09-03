@@ -9,6 +9,7 @@ import { TodosError } from '../components/TodosError';
 import { EmptyTodos } from '../components/EmptyTodos';
 import { TodoContext } from '../TodoContext';
 import React from 'react';
+import { Modal } from '../components/Modal';
 
 function AppUI (){
 const {
@@ -17,20 +18,25 @@ const {
   searchedTodos,
   completeTodo,
   deleteTodo,
+  openModal,
+  setOpenModal
 } = React.useContext(TodoContext)
 
   return(
-  <main className='grid grid-cols-2 gap-8 max-w-screen-lg mx-auto mt-12 '>
+  <main className='grid  md:grid-cols-2 gap-8 max-w-screen-lg mx-auto mt-4 p-6 '>
     <div  className='bg-white p-6 rounded-lg h-fit'>
-      <h2 className='text-center text-lg mb-6 text-indigo-500 font-medium'>
-        Crear una nueva tarea
-      </h2>
-      <TodoInput />
-      <CreateTodoButton />
+      {/* <TodoInput /> */}
+      <TodoCounter />
+      <CreateTodoButton setOpenModal={setOpenModal} />
+
+      {openModal && ( 
+      <Modal>
+       Logica para agregar todos
+      </Modal>
+      )}
     </div>
     
-    <div className='p-6'>
-      <TodoCounter />
+    <div className=''>
       <TodoSearch />
 
       <TodoList>

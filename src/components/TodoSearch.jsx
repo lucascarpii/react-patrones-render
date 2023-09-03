@@ -17,8 +17,8 @@ function TodoSearch(){
   }
   return(
     <input 
-    className="bg-white py-2 px-4 w-full border rounded mb-4" 
-    placeholder="Cortar cebolla" 
+    className="bg-white py-2 px-4 w-full rounded mb-4 placeholder-gray-400 font-medium outline-indigo-300 text-gray-500" 
+    placeholder="Buscar TODOs..." 
     value={searchValue}
     onChange={(e) => {
       setSearchValue(e.target.value)
