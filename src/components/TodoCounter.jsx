@@ -6,7 +6,7 @@ function TodoCounter(){
 
   if (loading) {
     return(
-      <div className='animate-pulse h-[28px] w-72 bg-gray-300 rounded mb-6 mx-auto'></div>
+      <div className='animate-pulse h-[40px] w-72 bg-gray-300 rounded mb-10 mx-auto'></div>
     );
   }
   let message = '';
@@ -19,8 +19,8 @@ function TodoCounter(){
     message = `Has completado ${completedTodos} de ${totalTodos} TODOs`;
   }
   return(
-    <h1 className='text-xl font-medium text-center mb-6 text-indigo-500'>
-      {message}
+    <h1 className="text-center mb-10 text-4xl font-semibold tracking-tight text-gray-400">
+     {message}
     </h1>
   )
 }
