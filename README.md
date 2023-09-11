@@ -1,4 +1,4 @@
-# ToDo App con React.js y Tailwind CSS
+# TODOs App con React.js y Tailwind CSS
 
 Este proyecto es una aplicación de tareas creada como parte del curso de React.js en Platzi. La aplicación permite a los usuarios crear, completar y eliminar tareas.
 
