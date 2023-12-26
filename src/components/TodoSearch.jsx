@@ -1,5 +1,4 @@
 import React from "react"
-import { TodoContext } from "../TodoContext"
 function TodoSearch({searchValue, setSearchValue, loading}){
   if(loading){
     return (

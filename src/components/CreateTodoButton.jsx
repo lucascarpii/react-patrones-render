@@ -1,8 +1,6 @@
 import React from "react"
-import { TodoContext } from "../TodoContext"
 
-function CreateTodoButton({setOpenModal}){
-  const {loading} = React.useContext(TodoContext)
+function CreateTodoButton({setOpenModal, loading}){
   if(loading){
     return(
       <div className="animate-pulse bg-gray-300 p-2 w-full rounded h-10"></div>

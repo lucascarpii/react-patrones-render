@@ -1,9 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import { TodoContext } from "../TodoContext"
 
-function Modal({ children, modalTitle }){
-  const {setOpenModal} = React.useContext(TodoContext)
+function Modal({ children, modalTitle, setOpenModal }){
   return ReactDOM.createPortal(
     <div className="flex items-center justify-center fixed top-0 left-0 w-full h-screen bg-black/20">
       <div className="bg-white rounded-lg max-w-screen-sm w-full">

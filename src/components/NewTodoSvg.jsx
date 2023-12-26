@@ -1,9 +1,7 @@
 import React from 'react'
-import { TodoContext } from '../TodoContext'
 import NewTodoImage from '../img/AddTasks.svg'
 
-function NewTodoSvg(){
-  const {loading} = React.useContext(TodoContext)
+function NewTodoSvg({loading}){
   if(loading){
     return(
     <div className="animate-pulse hidden sm:flex items-center justify-center w-3/4 h-48 bg-gray-300 rounded">
