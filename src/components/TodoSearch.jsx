@@ -1,16 +1,9 @@
 import React from "react"
 import { TodoContext } from "../TodoContext"
-function TodoSearch(){
-  const {searchValue, setSearchValue, loading} = React.useContext(TodoContext)
+function TodoSearch({searchValue, setSearchValue, loading}){
   if(loading){
     return (
-      <div className="animate-pulse bg-white py-2 px-4 w-full rounded mb-4 h-[40px] flex items-center" >
-        {/* <span className="bg-gray-300 h-5 w-32 rounded"></span> */}
-
-        {/* <span className="h-2 w-2 bg-gray-300 animate-pulse rounded-full mr-1"></span>
-        <span className="h-2 w-2 bg-gray-300 animate-pulse rounded-full mr-1"></span>
-        <span className="h-2 w-2 bg-gray-300 animate-pulse rounded-full mr-1"></span> */}
-        
+      <div className="animate-pulse bg-white py-2 px-4 w-full rounded mb-4 h-[40px] flex items-center" >        
         <p className="text-gray-300 font-medium">Cargando datos...</p>
       </div>
     )

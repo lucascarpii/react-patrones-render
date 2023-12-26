@@ -1,9 +1,6 @@
 import React from "react";
-import {TodoContext} from '../TodoContext'
 
-function TodoCounter(){
-  const {loading, completedTodos, totalTodos} = React.useContext(TodoContext)
-
+function TodoCounter({loading, completedTodos, totalTodos}){
   if (loading) {
     return(
       <div className='animate-pulse h-[40px] w-72 bg-gray-300 rounded mb-10 mx-auto'></div>
