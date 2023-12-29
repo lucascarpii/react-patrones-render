@@ -18,6 +18,7 @@ import { TodoItem } from '../components/TodoItem';
 import { TodosLoading } from '../components/TodosLoading';
 import { TodosError } from '../components/TodosError';
 import { EmptyTodos } from '../components/EmptyTodos';
+import { EmptySearchResults } from '../components/EmptySearchResults';
 
 function App() {
   const {
@@ -64,9 +65,7 @@ function App() {
             onError={() => <TodosError />}
             onLoading={() => <TodosLoading />}
             onEmptyTodos={() => <EmptyTodos />}
-            onEmptySearchResults={
-              (searchText) => <p>No hay resultados para {searchText}</p>
-            }
+            onEmptySearchResults={(searchText) => <EmptySearchResults searchText={searchText} />}
           >
             {todo => (
               <TodoItem
