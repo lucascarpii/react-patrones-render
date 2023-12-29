@@ -47,27 +47,22 @@ function App() {
           {openModal && (
             <Modal setOpenModal={setOpenModal} modalTitle={'Escribe un nuevo ToDo'}>
               <TodoForm
-              setOpenModal={setOpenModal}
-              addTodo={addTodo}
-               />
+                setOpenModal={setOpenModal}
+                addTodo={addTodo}
+              />
             </Modal>)}
         </NewTodoContainer>
 
         <div>
           <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} loading={loading} />
-          <TodoList>
-            {loading && (
-              <>
-                <TodosLoading />
-                <TodosLoading />
-                <TodosLoading />
-                <TodosLoading />
-              </>
-            )}
-            {error && <TodosError />}
-            {(!loading && searchedTodos.length === 0) && <EmptyTodos />}
-
-            {searchedTodos.map(todo => (
+          <TodoList
+            error={error}
+            loading={loading}
+            searchedTodos={searchedTodos}
+            onError={() => <TodosError />}
+            onLoading={() => <TodosLoading />}
+            onEmptyTodos={() => <EmptyTodos />}
+            render={todo => (
               <TodoItem
                 key={todo.text}
                 text={todo.text}
@@ -75,8 +70,8 @@ function App() {
                 onComplete={() => completeTodo(todo.text)}
                 onDelete={() => deleteTodo(todo.text)}
               />
-            ))}
-          </TodoList>
+            )}
+          />
         </div>
       </section>
     </main>
