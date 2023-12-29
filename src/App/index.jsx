@@ -58,11 +58,17 @@ function App() {
           <TodoList
             error={error}
             loading={loading}
+            totalTodos={totalTodos}
             searchedTodos={searchedTodos}
+            searchText={searchValue}
             onError={() => <TodosError />}
             onLoading={() => <TodosLoading />}
             onEmptyTodos={() => <EmptyTodos />}
-            render={todo => (
+            onEmptySearchResults={
+              (searchText) => <p>No hay resultados para {searchText}</p>
+            }
+          >
+            {todo => (
               <TodoItem
                 key={todo.text}
                 text={todo.text}
@@ -71,7 +77,7 @@ function App() {
                 onDelete={() => deleteTodo(todo.text)}
               />
             )}
-          />
+          </TodoList>
         </div>
       </section>
     </main>
