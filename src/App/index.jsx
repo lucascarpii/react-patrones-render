@@ -41,18 +41,17 @@ function App() {
       <TodoCounter loading={loading} completedTodos={completedTodos} totalTodos={totalTodos} />
 
       <section className="grid md:grid-cols-2 gap-8">
-        <NewTodoContainer>
-          <NewTodoSvg loading={loading} />
-          <CreateTodoButton setOpenModal={setOpenModal} loading={loading} />
-
-          {openModal && (
-            <Modal setOpenModal={setOpenModal} modalTitle={'Escribe un nuevo ToDo'}>
-              <TodoForm
-                setOpenModal={setOpenModal}
-                addTodo={addTodo}
-              />
-            </Modal>)}
+        <NewTodoContainer loading={loading}>
+          <NewTodoSvg />
+          <CreateTodoButton setOpenModal={setOpenModal} />
         </NewTodoContainer>
+        {openModal && (
+          <Modal setOpenModal={setOpenModal} modalTitle={'Escribe un nuevo ToDo'}>
+            <TodoForm
+              setOpenModal={setOpenModal}
+              addTodo={addTodo}
+            />
+          </Modal>)}
 
         <div>
           <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} loading={loading} />
