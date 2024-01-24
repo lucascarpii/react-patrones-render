@@ -9,7 +9,7 @@ function TodoList(props) {
       {(!!props.totalTodos && !props.searchedTodos.length) && props.onEmptySearchResults(props.searchText)}
       
       <ul className="grid gap-2">
-        {props.searchedTodos.map(renderFunc)}
+        {(!props.loading && !props.error) && props.searchedTodos.map(renderFunc)}
       </ul>
     </>
   )

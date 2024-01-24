@@ -5,8 +5,8 @@ import { Alert } from "../Alert";
 const ChangeAlert = ({show, toggleShow}) => {
   if(show){
     return <Alert 
-            titulo="Ten cuidado!" 
-            texto="Hubo cambios en los TODOs, recarga para actualizarlos." 
+            titulo="Vaya!" 
+            texto="Parece que hubo cambios en los datos, recarga para actualizarlos." 
             onClickFn={toggleShow}/>
   } else {
     return null
