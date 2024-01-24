@@ -2,7 +2,7 @@ import React from "react"
 
 const NewTodoContainer = ({children, loading}) => {
   return(
-    <main className='max-w-lg mx-auto p-6 relative min-h-screen'>
+    <main className='max-w-lg mx-auto p-6 pb-20 relative min-h-screen'>
       {
         React.Children
           .toArray(children)
