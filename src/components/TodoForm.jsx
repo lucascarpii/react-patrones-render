@@ -29,6 +29,7 @@ function TodoForm({ setOpenModal, addTodo }) {
         value={newTodoValue}
         onChange={onChange}
         onKeyDown={handleEnter}
+        autoFocus={true}
         className="block p-2.5 w-full text-sm text-gray-600 bg-gray-50 rounded-lg border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 outline-indigo-200"
       />
       <div className="grid sm:grid-cols-2 gap-2 border-gray-200 ">
