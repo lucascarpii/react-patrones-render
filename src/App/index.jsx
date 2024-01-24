@@ -7,8 +7,6 @@ import { TodoCounter } from '../components/TodoCounter';
 // Create TODOs
 import { Modal } from '../components/Modal';
 import { TodoForm } from '../components/TodoForm';
-import { NewTodoSvg } from '../components/NewTodoSvg';
-import { NewTodoContainer } from '../components/NewTodoContainer';
 import { CreateTodoButton } from '../components/CreateTodoButton';
 
 // Render TODOs
@@ -19,6 +17,7 @@ import { TodosLoading } from '../components/TodosLoading';
 import { TodosError } from '../components/TodosError';
 import { EmptyTodos } from '../components/EmptyTodos';
 import { EmptySearchResults } from '../components/EmptySearchResults';
+import { NewTodoContainer } from '../components/NewTodoContainer';
 
 function App() {
   const {
@@ -37,9 +36,9 @@ function App() {
   } = useTodos()
 
   return (
-    <main className='max-w-lg mx-auto p-6 relative min-h-screen'>
-      <TodoCounter loading={loading} completedTodos={completedTodos} totalTodos={totalTodos} />
-      <CreateTodoButton loading={loading} setOpenModal={setOpenModal} />
+    <NewTodoContainer loading={loading}>
+      <TodoCounter completedTodos={completedTodos} totalTodos={totalTodos} />
+      <CreateTodoButton setOpenModal={setOpenModal} />
       {openModal && (
         <Modal setOpenModal={setOpenModal} modalTitle={'Escribe un nuevo ToDo'}>
           <TodoForm
@@ -47,29 +46,28 @@ function App() {
             addTodo={addTodo}
           />
         </Modal>)}
-        <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} loading={loading} />
-        <TodoList
-          error={error}
-          loading={loading}
-          totalTodos={totalTodos}
-          searchedTodos={searchedTodos}
-          searchText={searchValue}
-          onError={() => <TodosError />}
-          onLoading={() => <TodosLoading />}
-          onEmptyTodos={() => <EmptyTodos />}
-          onEmptySearchResults={(searchText) => <EmptySearchResults searchText={searchText} />}
-        >
-          {todo => (
-            <TodoItem
-              key={todo.text}
-              text={todo.text}
-              completed={todo.completed}
-              onComplete={() => completeTodo(todo.text)}
-              onDelete={() => deleteTodo(todo.text)}
-            />
-          )}
-        </TodoList>
-    </main>
+      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+      <TodoList
+        error={error}
+        totalTodos={totalTodos}
+        searchedTodos={searchedTodos}
+        searchText={searchValue}
+        onError={() => <TodosError />}
+        onLoading={() => <TodosLoading />}
+        onEmptyTodos={() => <EmptyTodos />}
+        onEmptySearchResults={(searchText) => <EmptySearchResults searchText={searchText} />}
+      >
+        {todo => (
+          <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+            onComplete={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
+          />
+        )}
+      </TodoList>
+    </NewTodoContainer>
   )
 }
 
