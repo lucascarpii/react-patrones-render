@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-patrones-render/static/css/main.f1dc8677.css",
+    "main.js": "/react-patrones-render/static/js/main.8bda75b4.js",
+    "index.html": "/react-patrones-render/index.html",
+    "main.f1dc8677.css.map": "/react-patrones-render/static/css/main.f1dc8677.css.map",
+    "main.8bda75b4.js.map": "/react-patrones-render/static/js/main.8bda75b4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f1dc8677.css",
+    "static/js/main.8bda75b4.js"
+  ]
+}
