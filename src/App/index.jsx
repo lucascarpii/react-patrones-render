@@ -18,7 +18,7 @@ import { TodosError } from '../components/TodosError';
 import { EmptyTodos } from '../components/EmptyTodos';
 import { EmptySearchResults } from '../components/EmptySearchResults';
 import { NewTodoContainer } from '../components/NewTodoContainer';
-import { ChangeAlertWithStorageListener } from '../components/ChangeAlert';
+import { ChangeAlert } from '../components/ChangeAlert';
 
 function App() {
   const {
@@ -69,7 +69,7 @@ function App() {
           />
         )}
       </TodoList>
-      <ChangeAlertWithStorageListener sincronize={sincronizeTodos} />
+      <ChangeAlert sincronize={sincronizeTodos} />
     </NewTodoContainer>
   )
 }
